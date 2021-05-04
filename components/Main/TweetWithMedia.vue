@@ -2,7 +2,7 @@
   <div
     class="flex flex-col hover:bg-tweet-hover transition duration-300 cursor-pointer border-b border-gray-700"
   >
-    <div class="flex ml-14 mt-3 items-center" v-if="isRetweeted">
+    <div class="flex ml-14 mt-3 items-center">
       <svg
         height="16px"
         width="16px"
@@ -29,7 +29,7 @@
             class=""
           />
         </div>
-        <div class="w-0.5 bg-twitter-thread flex-grow" v-if="isThread"></div>
+        <div class="w-0.5 bg-twitter-thread flex-grow"></div>
       </div>
       <div class="flex flex-col w-full">
         <div class="flex justify-start items-center">
@@ -59,9 +59,7 @@
           <br />
           👌👌😁😍
           <div
-            w-full
             class="min-h-0 max-h-full items-center rounded-2xl mt-4 flex justify-center overflow-hidden"
-            v-if="isEmbeded"
           >
             <div class="grid grid-cols-3 gap-1 grid-flow-col">
               <img
@@ -166,7 +164,6 @@
     </div>
     <div
       class="flex w-full px-5 py-2 items-center hover:bg-gray-700 hover:bg-opacity-30"
-      v-if="isThread"
     >
       <div class="flex mr-5">
         <div class="rounded-full overflow-hidden h-8 w-8 flex items-center">
@@ -183,15 +180,7 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isThread: true,
-      isRetweeted: false,
-      isEmbeded: false,
-    };
-  },
-};
+export default {};
 </script>
 
 <style>

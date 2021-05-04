@@ -10,6 +10,7 @@
         class="w-full appearance-none bg-twitter-bg focus:outline-none text-xl resize-none my-4"
         placeholder="Apa yang sedang terjadi?"
         ref="tweetForm"
+        rows="1"
         @input="test"
         v-model="tweet"
       ></textarea>

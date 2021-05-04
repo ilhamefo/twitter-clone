@@ -1,0 +1,22 @@
+{
+  "recommendation": [
+    {
+      "id": 1,
+      "displayName": "eof",
+      "username": "@ilhamefo",
+      "isFollowing": true
+    },
+    {
+      "id": 2,
+      "displayName": "info twitwor & drama",
+      "username": "@infotwitwor_",
+      "isFollowing": true
+    },
+    {
+      "id": 3,
+      "displayName": "Ngakaksohard",
+      "username": "@NgakakSoHard_",
+      "isFollowing": true
+    }
+  ]
+}
