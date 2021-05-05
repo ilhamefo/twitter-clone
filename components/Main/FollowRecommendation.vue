@@ -1,25 +1,15 @@
 <template>
-  <div class="bg-trending-bg mt-5 flex flex-col rounded-xl overflow-hidden">
-    <div class="grid grid-cols-1 divide-y-2 divide-gray-700">
-      <div class="flex justify-between items-center py-3 px-4">
-        <div class="text-xl font-extrabold">Untuk diikuti</div>
-      </div>
-      <!-- loops start here -->
+  <card>
+    <template #header>Untuk Diikuti</template>
+    <template #content>
       <div
         class="flex justify-between items-center py-3 px-4 hover:bg-twitter-input cursor-pointer transition duration-300 relative"
-        v-for="item in recommendation"
+        v-for="item in data.recommendation"
         :key="item.id"
       >
         <div class="flex items-center justify-start">
-          <div
-            class="rounded-full overflow-hidden h-12 w-12 flex items-center mr-3 flex-grow"
-          >
-            <img
-              :src="require('~/assets/images/user-profile.jpg')"
-              alt=""
-              class=""
-            />
-          </div>
+          <round-img class="mr-3"></round-img>
+
           <div class="flex flex-col flex-shrink max-w-min">
             <span
               class="font-bold hover:underline whitespace-nowrap overflow-hidden overflow-ellipsis"
@@ -40,27 +30,25 @@
             ]"
             type="button"
             @click="changeBtnState(item, !item.isFollowing)"
-            @mouseenter="mouseHandler($event, true, item.isFollowing)"
-            @mouseleave="mouseHandler($event, false, item.isFollowing)"
+            @mouseover="mouseOver($event, item.isFollowing)"
+            @mouseleave="mouseLeave($event, item.isFollowing)"
           >
-            {{ (btnText = item.isFollowing ? "Mengikuti" : "Ikuti") }}
+            {{ item.isFollowing ? "Mengikuti" : "Ikuti" }}
           </button>
         </div>
       </div>
-      <div
-        class="flex flex-col justify-between items-center p-3 hover:bg-twitter-input cursor-pointer transition duration-300 relative"
-      >
-        <div class="flex justify-between items-center w-full">
-          <div class="text-sm text-twitter">Tampilkan lebih banyak</div>
-        </div>
-      </div>
-    </div>
-  </div>
+    </template>
+    <template #footer>Tampilkan lebih banyak</template>
+  </card>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import Card from "./Card.vue";
+import RoundImg from "./RoundImg.vue";
+import UnfollowModal from "./UnfollowModal.vue";
 export default {
+  components: { UnfollowModal, Card, RoundImg },
   data() {
     return {
       btnText: "",
@@ -74,44 +62,27 @@ export default {
   methods: {
     changeBtnState(user, state) {
       if (!state) {
-        this.$store.commit("showModalUnfollow", true);
-      }
-      this.$axios
-        .$patch(`http://localhost:3004/recommendation/${user.id}`, {
-          isFollowing: state,
-        })
-        .then(() => {
-          this.getRecommendation();
-        });
-    },
-    mouseHandler(e, status, state) {
-      if (state) {
-        switch (status) {
-          case true:
-            e.target.innerHTML = "Setop Ikuti";
-            break;
-          case false:
-            e.target.innerHTML = "Mengikuti";
-            break;
-
-          default:
-            break;
-        }
+        this.showModal(user);
       } else {
-        e.target.innerHTML = "Ikuti";
+        this.$store.dispatch("fireFollow", user);
       }
     },
-    getRecommendation(id = "") {
-      this.$axios
-        .$get(`http://localhost:3004/recommendation/${id}`)
-        .then((response) => {
-          this.recommendation = response;
-        });
+
+    showModal(user) {
+      this.$store.commit("showModalUnfollow", true);
+      this.$store.commit("selected", user);
+    },
+
+    mouseOver(e, isFollowing) {
+      e.target.innerHTML = isFollowing ? "Setop Ikuti" : "Ikuti";
+    },
+    mouseLeave(e, isFollowing) {
+      e.target.innerHTML = isFollowing ? "Mengikuti" : "Ikuti";
     },
   },
 
   created() {
-    this.getRecommendation();
+    this.$store.dispatch("getRecommendation");
   },
 };
 </script>

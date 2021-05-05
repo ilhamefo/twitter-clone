@@ -21,6 +21,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/portal.client.js', mode: 'client' },
+    // { src: '~/plugins/progress.client.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -42,15 +44,17 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
+
   build: {
-    build: {
-      babel: {
-        presets({ envName }) {
-          return [
-            ["@babel/plugin-proposal-private-methods", { "loose": true }]
-          ]
-        }
-      }
+    transpile: ['vue-radial-progress'],
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-methods', { loose: true }]
+      ]
+    },
+    extend(config, ctx) {
+      config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
   }
+
 }

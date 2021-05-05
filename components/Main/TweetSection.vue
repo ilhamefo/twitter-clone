@@ -1,9 +1,7 @@
 <template>
   <div class="w-full px-4 py-2 sm:flex border-b border-gray-700 hidden">
     <div class="flex mr-5">
-      <div class="rounded-full overflow-hidden h-12 w-12 flex items-center">
-        <img :src="require('~/assets/images/user-profile.jpg')" alt="" />
-      </div>
+      <round-img></round-img>
     </div>
     <div class="flex flex-col w-full">
       <textarea
@@ -33,23 +31,60 @@
             </g>
           </svg>
           <span class="text-twitter font-bold text-sm"
-            >Semua orang dapat membalas</span
-          >
+            >Semua orang dapat membalas
+          </span>
         </a>
       </div>
-
       <!-- icons -->
-      <icons></icons>
+      <icons>
+        <template #button>
+          <button
+            type="button"
+            class="transition duration-500 text-center py-2 px-5 bg-twitter rounded-full focus:outline-none font-bold text-white text-base disabled:opacity-30 hover:bg-twitter-btn-hover"
+            :disabled="tweet == '' ? true : false"
+          >
+            Tweet
+          </button>
+        </template>
+        <template #loading>
+          <client-only>
+            <loading :input="count"></loading>
+          </client-only>
+        </template>
+      </icons>
     </div>
   </div>
 </template>
 
 <script>
 import Icons from "./Icons.vue";
+import RoundImg from "./RoundImg.vue";
+import { mapState } from "vuex";
 export default {
-  components: { Icons },
+  components: {
+    Icons,
+    RoundImg,
+    Loading: () => import("~/components/Main/Loading.vue"),
+  },
   data() {
-    return { tweet: "" };
+    return {};
+  },
+  computed: {
+    count: function () {
+      return this.tweet.length;
+    },
+    percent: function () {
+      return Math.round((this.tweet.length / 280) * 100);
+    },
+    ...mapState(["data"]),
+    tweet: {
+      get() {
+        return this.$store.state.data.tweet;
+      },
+      set(value) {
+        this.$store.commit("tweet", value);
+      },
+    },
   },
   methods: {
     test(e) {

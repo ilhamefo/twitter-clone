@@ -22,13 +22,8 @@
 
     <div class="flex w-full px-3 pt-2">
       <div class="flex flex-col items-center mr-5">
-        <div class="rounded-full overflow-hidden h-12 w-12 flex items-center">
-          <img
-            :src="require('~/assets/images/user-profile.jpg')"
-            alt=""
-            class=""
-          />
-        </div>
+        <round-img></round-img>
+
         <div class="w-0.5 bg-twitter-thread flex-grow" v-if="isThread"></div>
       </div>
       <div class="flex flex-col w-full">
@@ -54,7 +49,10 @@
         </div>
         <!-- actual tweets here -->
         <span class="min-h-0 max-h-96 flex flex-col">
-          Tweet with some image
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
+          laboriosam iure distinctio architecto, asperiores molestias, ullam
+          optio dolor quasi possimus aut. Recusandae possimus, ad nobis
+          laudantium ratione velit expedita molestias.
           <br />
           <br />
           👌👌😁😍
@@ -183,7 +181,9 @@
 </template>
 
 <script>
+import RoundImg from "./RoundImg.vue";
 export default {
+  components: { RoundImg },
   data() {
     return {
       isThread: true,

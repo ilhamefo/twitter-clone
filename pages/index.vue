@@ -1,6 +1,9 @@
 <template>
   <div class="">
-    <unfollow-modal v-if="data.showModalUnfollow"></unfollow-modal>
+    <unfollow-modal
+      :user="data.selected"
+      v-if="data.showModalUnfollow"
+    ></unfollow-modal>
     <div class="flex bg-twitter-bg relative">
       <div
         class="sm:flex hidden justify-start sm:justify-end w-1/12 md:w-2/12 xl:w-3/12 2xl:w-4/12 h-screen relative"
@@ -54,7 +57,7 @@
             class="h-3 w-full bg-twitter-gray border-b border-gray-700"
           ></div>
 
-          <tweet></tweet>
+          <tweet v-for="i in 12" :key="i"></tweet>
           <tweet-with-media></tweet-with-media>
         </div>
 

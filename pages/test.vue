@@ -1,18 +1,15 @@
 <template>
-  <div class="flex">
-    <left-side class="fixed"></left-side>
-    <!-- <left-side class=""></left-side> -->
-  </div>
+  <client-only>
+    <loading></loading>
+  </client-only>
 </template>
+
 <script>
-import LeftSide from "~/components/Main/LeftSide.vue";
-import ResizeAuto from "~/components/ResizeAuto.vue";
+import Loading from "~/components/Main/Loading.vue";
 export default {
-  name: "App",
-  components: {
-    ResizeAuto,
-    LeftSide,
-  },
+  components: { Loading },
 };
 </script>
 
+<style>
+</style>

@@ -103,18 +103,45 @@
         </svg>
       </a>
     </div>
-    <button
-      type="button"
-      class="transition duration-500 text-center py-1 px-5 bg-twitter rounded-full focus:outline-none font-bold text-white text-base hover:bg-twitter-btn-hover"
-      disabled
-    >
-      Tweet
-    </button>
+    <div class="flex items-center">
+      <div
+        class="flex items-center justify-center mr-3"
+        v-if="data.tweet != ''"
+      >
+        <slot name="loading"></slot>
+      </div>
+      <span
+        class="h-2/3 w-0.5 bg-twitter-thread mr-3"
+        v-if="data.tweet != ''"
+      ></span>
+      <span class="mr-2" v-if="data.tweet != ''">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="40px"
+          width="40px"
+          viewBox="0 0 24 24"
+          fill="#1DA1F2"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+          />
+        </svg>
+      </span>
+
+      <slot name="button"></slot>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState(["data"]),
+  },
+};
 </script>
 
 <style>
