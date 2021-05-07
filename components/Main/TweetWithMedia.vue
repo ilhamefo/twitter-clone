@@ -166,13 +166,7 @@
       class="flex w-full px-5 py-2 items-center hover:bg-gray-700 hover:bg-opacity-30"
     >
       <div class="flex mr-5">
-        <div class="rounded-full overflow-hidden h-8 w-8 flex items-center">
-          <img
-            :src="require('~/assets/images/user-profile.jpg')"
-            alt=""
-            class=""
-          />
-        </div>
+        <round-img :size="8"></round-img>
       </div>
       <div class="text-sm text-twitter">Tampilkan Utas Ini</div>
     </div>
@@ -180,7 +174,10 @@
 </template>
 
 <script>
-export default {};
+import RoundImg from "./RoundImg.vue";
+export default {
+  components: { RoundImg },
+};
 </script>
 
 <style>

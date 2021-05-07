@@ -1,7 +1,7 @@
 <template>
   <div class="w-full px-4 py-2 sm:flex border-b border-gray-700 hidden">
     <div class="flex mr-5">
-      <round-img></round-img>
+      <round-img :size="12"></round-img>
     </div>
     <div class="flex flex-col w-full">
       <textarea

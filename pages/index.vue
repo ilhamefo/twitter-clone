@@ -4,9 +4,11 @@
       :user="data.selected"
       v-if="data.showModalUnfollow"
     ></unfollow-modal>
+
     <div class="flex bg-twitter-bg relative">
+      <message></message>
       <div
-        class="sm:flex hidden justify-start sm:justify-end w-1/12 md:w-2/12 xl:w-3/12 2xl:w-4/12 h-screen relative"
+        class="sm:flex hidden justify-start sm:justify-end w-1/12 md:w-2/12 xl:w-3/12 2xl:w-4/12 h-screen relative z-10"
       >
         <left-side class="fixed left-0 md:-left-12"></left-side>
       </div>
@@ -14,21 +16,12 @@
         <div
           class="flex flex-col w-6/12 flex-grow relative border-r-2 sm:border-l-2 border-gray-700"
         >
-          <!-- <div class="absolute flex items-center justify-center">
-          <div class="">Test</div>
-        </div> -->
           <div
             class="border-b-2 border-gray-700 bg-twitter-bg flex justify-between items-center sticky top-0"
           >
             <div class="flex justify-center items-center">
-              <div
-                class="rounded-full overflow-hidden h-8 w-8 sm:hidden flex items-center ml-4"
-              >
-                <img
-                  :src="require('~/assets/images/user-profile.jpg')"
-                  alt=""
-                />
-              </div>
+              <round-img :size="12" class="sm:hidden"></round-img>
+
               <div class="font-extrabold text-lg p-3">Tweet Terbaru</div>
             </div>
             <a
@@ -57,7 +50,7 @@
             class="h-3 w-full bg-twitter-gray border-b border-gray-700"
           ></div>
 
-          <tweet v-for="i in 12" :key="i"></tweet>
+          <tweet v-for="i in 3" :key="i"></tweet>
           <tweet-with-media></tweet-with-media>
         </div>
 
@@ -75,6 +68,8 @@ import TweetSection from "~/components/Main/TweetSection.vue";
 import TweetWithMedia from "~/components/Main/TweetWithMedia.vue";
 import UnfollowModal from "~/components/Main/UnfollowModal.vue";
 import { mapState } from "vuex";
+import RoundImg from "~/components/Main/RoundImg.vue";
+import Message from "~/components/Main/Message.vue";
 export default {
   components: {
     LeftSide,
@@ -83,6 +78,8 @@ export default {
     TweetWithMedia,
     RightSide,
     UnfollowModal,
+    RoundImg,
+    Message,
   },
   computed: {
     ...mapState(["data"]),

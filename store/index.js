@@ -4,6 +4,7 @@ export const state = () => ({
     recommendation: null,
     selected: null,
     tweet: "",
+    showModalUser: false,
   },
 })
 export const actions = {
@@ -41,6 +42,9 @@ export const mutations = {
   },
   showModalUnfollow(state, toggle) {
     state.data.showModalUnfollow = toggle
+  },
+  showModalUser(state) {
+    state.data.showModalUser = !state.data.showModalUser
   },
   selected(state, user) {
     state.data.selected = user

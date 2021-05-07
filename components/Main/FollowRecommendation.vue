@@ -8,7 +8,7 @@
         :key="item.id"
       >
         <div class="flex items-center justify-start">
-          <round-img class="mr-3"></round-img>
+          <round-img class="mr-3" :size="12"></round-img>
 
           <div class="flex flex-col flex-shrink max-w-min">
             <span

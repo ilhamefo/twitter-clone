@@ -1,14 +1,14 @@
 <template>
-  <div class="flex justify-end xl:justify-start">
+  <div class="flex justify-end xl:justify-start relative">
+    <transition name="fade">
+      <user-modal v-if="data.showModalUser"></user-modal>
+    </transition>
     <div
-      class="xl:max-w-max max-w-min xl:px-2 xl:py-2.5 p-2 flex justify-between items-center hover:bg-twitter-hover rounded-full mb-3 cursor-pointer transition duration-300"
+      class="xl:max-w-max max-w-min xl:px-2 xl:py-2.5 p-2 flex justify-between items-center hover:bg-twitter-hover active:bg-twitter-btn-hover active:bg-opacity-30 rounded-full mb-3 cursor-pointer transition duration-300"
+      @click="toggleModal"
     >
       <div class="flex items-center">
-        <div
-          class="rounded-full overflow-hidden h-10 w-10 flex items-center xl:mr-5"
-        >
-          <img :src="require('~/assets/images/user-profile.jpg')" alt="" />
-        </div>
+        <round-img :size="10" class="xl:mr-5"></round-img>
         <div class="flex flex-col xl:mr-16">
           <span class="font-bold text-white hidden xl:flex">eof</span>
           <span class="text-gray-500 hidden xl:flex">@ilhamefo</span>
@@ -34,8 +34,35 @@
 </template>
 
 <script>
-export default {};
+import RoundImg from "./RoundImg.vue";
+import UserModal from "./UserModal.vue";
+import { mapState } from "vuex";
+export default {
+  components: { RoundImg, UserModal },
+  computed: {
+    ...mapState(["data"]),
+  },
+  methods: {
+    toggleModal() {
+      this.$store.commit("showModalUser");
+    },
+  },
+};
 </script>
 
-<style>
+<style scoped>
+.fade-enter-active {
+  animation: bounce-in 0.3s;
+}
+.fade-leave-active {
+  animation: bounce-in 0.3s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 </style>

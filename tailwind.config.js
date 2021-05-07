@@ -2,10 +2,12 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        'white': '0 4px 6px -1px rgba(255, 255, 255, 0.5), 0 2px 4px -1px rgba(255, 255, 255, 0.5)',
+        'white': '0 0 10px 3px rgba(255, 255, 255, 0.05), 0 0 10px 3px rgba(255, 255, 255, 0.05)',
       },
       maxWidth: {
-        '2/3': '55.66666%'
+        '2/3': '55.66666%',
+        '600': '600px',
+
       },
       minHeight: {
         '44': '11rem'
@@ -14,6 +16,10 @@ module.exports = {
         'max': 'max-content',
         'min': 'min-content',
         '44': '11rem',
+        '600': '600px',
+      },
+      height: {
+        '600': '600px'
       },
       colors: {
         'twitter': '#1DA1F2',
@@ -38,6 +44,8 @@ module.exports = {
       ringColor: ['group-focus', 'focus-within'],
       ringWidth: ['group-focus', 'focus-within'],
       fill: ['group-focus', 'focus-within'],
+      backgroundColor: ['active'],
+      backgroundOpacity: ['active'],
     }
   },
 }

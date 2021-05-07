@@ -22,7 +22,7 @@
 
     <div class="flex w-full px-3 pt-2">
       <div class="flex flex-col items-center mr-5">
-        <round-img></round-img>
+        <round-img :size="12"></round-img>
 
         <div class="w-0.5 bg-twitter-thread flex-grow" v-if="isThread"></div>
       </div>
@@ -167,13 +167,7 @@
       v-if="isThread"
     >
       <div class="flex mr-5">
-        <div class="rounded-full overflow-hidden h-8 w-8 flex items-center">
-          <img
-            :src="require('~/assets/images/user-profile.jpg')"
-            alt=""
-            class=""
-          />
-        </div>
+        <round-img :size="8"></round-img>
       </div>
       <div class="text-sm text-twitter">Tampilkan Utas Ini</div>
     </div>
