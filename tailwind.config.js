@@ -19,7 +19,8 @@ module.exports = {
         '600': '600px',
       },
       height: {
-        '600': '600px'
+        '600': '600px',
+        'min': 'min-content'
       },
       colors: {
         'twitter': '#1DA1F2',
@@ -39,13 +40,13 @@ module.exports = {
   variants: {
     extend: {
       opacity: ['disabled'],
-      backgroundColor: ['group-focus'],
+      backgroundColor: ['group-focus', 'checked', 'active'],
       textColor: ['group-focus'],
-      ringColor: ['group-focus', 'focus-within'],
-      ringWidth: ['group-focus', 'focus-within'],
+      ringColor: ['group-focus', 'focus-within', 'checked'],
+      ringWidth: ['group-focus', 'focus-within', 'checked'],
       fill: ['group-focus', 'focus-within'],
-      backgroundColor: ['active'],
       backgroundOpacity: ['active'],
+      borderColor: ['checked'],
     }
   },
 }

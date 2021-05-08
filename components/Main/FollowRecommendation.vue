@@ -1,11 +1,13 @@
 <template>
   <div class="">
-    <portal to="target">
-      <unfollow-modal
-        :user="recommendation.selected"
-        v-if="recommendation.showModalUnfollow"
-      ></unfollow-modal>
-    </portal>
+    <client-only>
+      <portal to="target">
+        <unfollow-modal
+          :user="recommendation.selected"
+          v-if="recommendation.showModalUnfollow"
+        ></unfollow-modal>
+      </portal>
+    </client-only>
     <card>
       <template #header>Untuk Diikuti</template>
       <template #content>
@@ -46,7 +48,7 @@
                 @mouseover="mouseOver($event, item.isFollowing)"
                 @mouseleave="mouseLeave($event, item.isFollowing)"
               >
-                {{ item.isFollowing ? "Mengikuti" : "Ikuti" }}
+                {{ (btnText = item.isFollowing ? "Mengikuti" : "Ikuti") }}
               </button>
             </div>
           </div>
@@ -66,8 +68,8 @@ export default {
   components: { UnfollowModal, Card, RoundImg },
   data() {
     return {
-      btnText: "",
       btnStyle: "",
+      btnText: "",
     };
   },
   computed: {
@@ -88,10 +90,11 @@ export default {
     },
 
     mouseOver(e, isFollowing) {
-      e.target.innerHTML = isFollowing ? "Setop Ikuti" : "Ikuti";
+      console.log("hello");
+      this.btnText = isFollowing ? "Setop Ikuti" : "Ikuti";
     },
     mouseLeave(e, isFollowing) {
-      e.target.innerHTML = isFollowing ? "Mengikuti" : "Ikuti";
+      this.btnText = isFollowing ? "Mengikuti" : "Ikuti";
     },
   },
 

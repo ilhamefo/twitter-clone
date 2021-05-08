@@ -200,13 +200,10 @@
     </div>
 
     <!-- tweet button -->
-    <portal to="target" v-if="tweet.showModal">
-      <modal-tweet></modal-tweet>
-    </portal>
-    <button
+    <nuxt-link
+      to="/compose/tweet"
       type="button"
       class="transition duration-500 flex justify-center items-center xl:w-full p-3 xl:py-2.5 bg-twitter my-3 rounded-full focus:outline-none font-bold text-white text-base hover:bg-twitter-btn-hover"
-      @click="showModal"
     >
       <span class="xl:flex hidden">Tweet</span>
       <svg
@@ -221,16 +218,14 @@
           ></path>
         </g>
       </svg>
-    </button>
+    </nuxt-link>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
 export default {
-  components: {
-    ModalTweet: () => import("./ModalTweet.vue"),
-  },
+  components: {},
   computed: {
     ...mapState(["tweet"]),
   },

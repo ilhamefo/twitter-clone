@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4 py-2 sm:flex border-gray-700 hidden">
+  <div class="w-full px-4 py-2 flex border-gray-700">
     <div class="flex mr-5">
       <round-img :size="12"></round-img>
     </div>
@@ -30,7 +30,7 @@
               ></path>
             </g>
           </svg>
-          <span class="text-twitter font-bold text-sm"
+          <span class="text-twitter font-bold text-sm whitespace-nowrap"
             >Semua orang dapat membalas
           </span>
         </a>

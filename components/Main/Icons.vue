@@ -1,6 +1,6 @@
 <template>
   <div class="mt-2 flex justify-between">
-    <div class="grid grid-cols-5 gap-1">
+    <div class="grid grid-flow-col auto-cols-max grid-rows-1 gap-0">
       <a
         href="#"
         class="p-3 hover:bg-twitter-hover rounded-full flex items-center justify-center"
@@ -106,15 +106,15 @@
     <div class="flex items-center">
       <div
         class="flex items-center justify-center mr-3"
-        v-if="data.tweet != ''"
+        v-if="tweet.tweet != ''"
       >
         <slot name="loading"></slot>
       </div>
       <span
         class="h-2/3 w-0.5 bg-twitter-thread mr-3"
-        v-if="data.tweet != ''"
+        v-if="tweet.tweet != ''"
       ></span>
-      <span class="mr-2" v-if="data.tweet != ''">
+      <span class="mr-2" v-if="tweet.tweet != ''">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="40px"
@@ -139,7 +139,7 @@ import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["data"]),
+    ...mapState(["tweet"]),
   },
 };
 </script>
