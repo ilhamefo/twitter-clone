@@ -3,7 +3,7 @@
     class="grid grid-cols-1 grid-flow-row auto-rows-max divide-y divide-gray-600"
   >
     <div
-      class="flex justify-between items-center px-4 py-2 flex-grow hover:bg-twitter-hover cursor-pointer transition duration-300"
+      class="flex justify-between items-center px-4 py-2 flex-grow hover:bg-twitter-hover cursor-pointer transition duration-300 border-t border-gray-600"
     >
       <span class="">Permintaan pesan</span>
       <span class="">
@@ -21,39 +21,49 @@
         </svg>
       </span>
     </div>
-    <div
-      class="flex justify-between items-center px-4 py-4 flex-grow hover:bg-twitter-hover cursor-pointer transition duration-300"
-      v-for="i in 20"
-      :key="i"
-    >
-      <div class="flex flex-1 overflow-hidden">
-        <round-img :size="12" class="mr-2 flex-shrink-0"></round-img>
-        <div class="flex flex-col justify-center">
-          <div class="flex">
-            <span class="font-bold text-white hidden xl:flex mr-1">eof</span>
-            <span class="text-gray-500 hidden xl:flex">@ilhamefo</span>
+    <client-only>
+      <div
+        class="flex justify-between items-center px-4 py-4 flex-grow hover:bg-twitter-hover cursor-pointer transition duration-300"
+        v-for="item in messages.messages"
+        :key="item.id"
+      >
+        <div class="flex flex-1 overflow-hidden">
+          <round-img :size="12" class="mr-2 flex-shrink-0">
+            <img :src="item.image" :alt="item.from" />
+          </round-img>
+          <div class="flex flex-col justify-center">
+            <div class="flex">
+              <span class="font-bold text-white flex mr-1">{{
+                item.displayname
+              }}</span>
+              <span class="text-gray-500 flex">{{ item.from }}</span>
+            </div>
+            <p class="whitespace-nowrap text-gray-400 w-1/2 truncate max-w-sm">
+              {{ item.message }}
+            </p>
           </div>
-          <p class="whitespace-nowrap text-gray-400 w-1/2 truncate max-w-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos,
-            voluptate doloremque? Alias sapiente aut aperiam temporibus, dolore
-            eveniet cupiditate deserunt a nam vel ipsa rem nihil magni hic ullam
-            tempore.
-          </p>
+        </div>
+        <div
+          class="flex-none text-gray-400 flex flex-col justify-start items-start h-full"
+        >
+          07 Mei 2021
         </div>
       </div>
-      <div
-        class="flex-none text-gray-400 flex flex-col justify-start items-start h-full"
-      >
-        07 Mei 2021
-      </div>
-    </div>
+    </client-only>
   </div>
 </template>
 
 <script>
 import RoundImg from "./RoundImg.vue";
+import { mapState } from "vuex";
 export default {
   components: { RoundImg },
+  computed: {
+    ...mapState(["messages"]),
+  },
+  mounted() {
+    this.$store.dispatch("messages/getMessages");
+  },
 };
 </script>
 

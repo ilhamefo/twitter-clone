@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4 py-2 sm:flex border-b border-gray-700 hidden">
+  <div class="w-full px-4 py-2 sm:flex border-gray-700 hidden">
     <div class="flex mr-5">
       <round-img :size="12"></round-img>
     </div>
@@ -76,13 +76,13 @@ export default {
     percent: function () {
       return Math.round((this.tweet.length / 280) * 100);
     },
-    ...mapState(["data"]),
+    ...mapState(["tweet"]),
     tweet: {
       get() {
-        return this.$store.state.data.tweet;
+        return this.$store.state.tweet.tweet;
       },
       set(value) {
-        this.$store.commit("tweet", value);
+        this.$store.commit("tweet/tweet", value);
       },
     },
   },

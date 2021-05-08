@@ -1,6 +1,6 @@
 <template>
   <card>
-    <template #header>Tren untuk Anda</template>
+    <template #header>Tren untuk Anda </template>
     <template #icon>
       <button
         type="button"
@@ -24,74 +24,57 @@
         </svg>
       </button>
     </template>
-    <template #content
-      ><div
-        class="flex flex-col justify-between items-center p-3 hover:bg-twitter-input cursor-pointer transition duration-300 relative"
-        v-for="(item, i) in trendings"
-        :key="item.id"
-      >
-        <button
-          type="button"
-          class="focus:outline-none p-2 hover:bg-twitter-secondary-hover rounded-full absolute top-3 right-3"
+    <template #content>
+      <!-- <template #content v-if="trending.isLoaded"> should be checking if data is loaded or not, but I try without checking. and still, works. don't know what exactly happening. but yea, if it works, it works :| (maybe bcs async?) -->
+      <client-only>
+        <div
+          class="flex flex-col justify-between items-center p-3 hover:bg-twitter-input cursor-pointer transition duration-300 relative"
+          v-for="(item, i) in trending.trendings"
+          :key="item.id"
         >
-          <svg
-            height="18px"
-            width="18px"
-            viewBox="0 0 24 24"
-            class="fill-current text-gray-400"
+          <button
+            type="button"
+            class="focus:outline-none p-2 hover:bg-twitter-secondary-hover rounded-full absolute top-3 right-3"
           >
+            <svg
+              height="18px"
+              width="18px"
+              viewBox="0 0 24 24"
+              class="fill-current text-gray-400"
             >
-            <g>
-              <circle cx="5" cy="12" r="2"></circle>
-              <circle cx="12" cy="12" r="2"></circle>
-              <circle cx="19" cy="12" r="2"></circle>
-            </g>
-          </svg>
-        </button>
-        <div class="flex justify-between items-center w-full">
-          <div class="text-xs text-gray-400">{{ i + 1 }} · Populer</div>
+              >
+              <g>
+                <circle cx="5" cy="12" r="2"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+                <circle cx="19" cy="12" r="2"></circle>
+              </g>
+            </svg>
+          </button>
+          <div class="flex justify-between items-center w-full">
+            <div class="text-xs text-gray-400">{{ i + 1 }} · Populer</div>
+          </div>
+          <div class="flex items-center w-full">
+            <span class="font-extrabold">{{ item.tag }}</span>
+          </div>
+          <div class="flex items-center w-full">
+            <div class="text-xs text-gray-400">{{ item.tweetCount }} Tweet</div>
+          </div>
         </div>
-        <div class="flex items-center w-full">
-          <span class="font-extrabold">{{ item.tag }}</span>
-        </div>
-        <div class="flex items-center w-full">
-          <div class="text-xs text-gray-400">{{ item.tweetCount }} Tweet</div>
-        </div>
-      </div></template
-    >
+      </client-only>
+    </template>
     <template #footer>Tampilkan lebih banyak</template>
   </card>
 </template>
 
 <script>
-import Card from "./Card.vue";
+import { mapState } from "vuex";
 export default {
-  components: { Card },
-  data() {
-    return {
-      trendings: [
-        {
-          id: 1,
-          tag: "#3rdTasteOfButter",
-          tweetCount: "403rb",
-        },
-        {
-          id: 2,
-          tag: "#HEART_OF_MOA",
-          tweetCount: "116rb",
-        },
-        {
-          id: 3,
-          tag: "#TXT_FREEZE",
-          tweetCount: "145rb",
-        },
-        {
-          id: 4,
-          tag: "#HAECHAN",
-          tweetCount: "135rb",
-        },
-      ],
-    };
+  components: { Card: () => import("./Card.vue") },
+  computed: {
+    ...mapState(["trending"]),
+  },
+  mounted() {
+    this.$store.dispatch("trending/getTrendings");
   },
 };
 </script>

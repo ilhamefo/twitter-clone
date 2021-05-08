@@ -1,10 +1,11 @@
 <template>
   <div class="">
     <unfollow-modal
-      :user="data.selected"
-      v-if="data.showModalUnfollow"
+      :user="recommendation.selected"
+      v-if="recommendation.showModalUnfollow"
     ></unfollow-modal>
-
+    <portal-target name="target"></portal-target>
+    <portal-target name="prompt"></portal-target>
     <div class="flex bg-twitter-bg relative">
       <message></message>
       <div
@@ -20,7 +21,7 @@
             class="border-b-2 border-gray-700 bg-twitter-bg flex justify-between items-center sticky top-0"
           >
             <div class="flex justify-center items-center">
-              <round-img :size="12" class="sm:hidden"></round-img>
+              <round-img :size="8" class="sm:hidden ml-2"></round-img>
 
               <div class="font-extrabold text-lg p-3">Tweet Terbaru</div>
             </div>
@@ -47,7 +48,7 @@
 
           <!-- div -->
           <div
-            class="h-3 w-full bg-twitter-gray border-b border-gray-700"
+            class="h-3 w-full bg-twitter-gray border-b border-t border-gray-700"
           ></div>
 
           <tweet v-for="i in 3" :key="i"></tweet>
@@ -61,28 +62,21 @@
 </template>
 
 <script>
-import LeftSide from "~/components/Main/LeftSide.vue";
-import RightSide from "~/components/Main/RightSide.vue";
-import Tweet from "~/components/Main/Tweet.vue";
-import TweetSection from "~/components/Main/TweetSection.vue";
-import TweetWithMedia from "~/components/Main/TweetWithMedia.vue";
-import UnfollowModal from "~/components/Main/UnfollowModal.vue";
 import { mapState } from "vuex";
-import RoundImg from "~/components/Main/RoundImg.vue";
-import Message from "~/components/Main/Message.vue";
 export default {
   components: {
-    LeftSide,
-    TweetSection,
-    Tweet,
-    TweetWithMedia,
-    RightSide,
-    UnfollowModal,
-    RoundImg,
-    Message,
+    LeftSide: () => import("~/components/Main/LeftSide.vue"),
+    TweetSection: () => import("~/components/Main/TweetSection.vue"),
+    Tweet: () => import("~/components/Main/Tweet.vue"),
+    TweetWithMedia: () => import("~/components/Main/TweetWithMedia.vue"),
+    RightSide: () => import("~/components/Main/RightSide.vue"),
+    UnfollowModal: () => import("~/components/Main/UnfollowModal.vue"),
+    RoundImg: () => import("~/components/Main/RoundImg.vue"),
+    Message: () => import("~/components/Main/Message.vue"),
+    ModalTweet: () => import("~/components/Main/ModalTweet.vue"),
   },
   computed: {
-    ...mapState(["data"]),
+    ...mapState(["data", "recommendation"]),
   },
   head() {
     return {
@@ -98,6 +92,10 @@ export default {
       e.target.style.height = `${e.target.scrollHeight}px`;
     },
   },
+  beforeMount() {
+    this.$store.dispatch("users/getUsers");
+  },
+  mounted() {},
 };
 </script>
 

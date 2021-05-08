@@ -1,10 +1,10 @@
 <template>
   <div
-    class="fixed py-1.5 w-96 max-h bg-twitter-bg rounded-t-2xl bottom-0 right-8 z-20 shadow-white text-white grid grid-cols-1 grid-flow-row auto-rows-max gap-1 divide-y divide-gray-600 cursor-pointer"
+    class="fixed py-1.5 w-96 max-h bg-twitter-bg rounded-t-2xl bottom-0 right-8 z-20 shadow-white text-white cursor-pointer lg:flex flex-col hidden"
   >
     <div
       class="flex justify-between items-center px-4 flex-grow"
-      @click="show = !show"
+      @click="toggle"
     >
       <h1 class="font-extrabold text-xl">Pesan</h1>
       <div class="flex">
@@ -28,7 +28,7 @@
             width="24px"
             viewBox="0 0 24 24"
             class="fill-current text-twitter"
-            :class="[show ? 'transform rotate-180' : '']"
+            :class="[messages.show ? 'transform rotate-180' : '']"
           >
             <g>
               <path
@@ -44,7 +44,7 @@
     </div>
     <div class="overflow-y-scroll max-h-600">
       <transition name="fade">
-        <messages-content v-if="show"></messages-content>
+        <messages-content v-if="messages.show"></messages-content>
       </transition>
     </div>
   </div>
@@ -53,13 +53,21 @@
 <script>
 import MessagesContent from "./MessagesContent.vue";
 import RoundImg from "./RoundImg.vue";
+import { mapState } from "vuex";
 export default {
   components: { RoundImg, MessagesContent },
   data() {
-    return {
-      show: false,
-    };
+    return {};
   },
+  computed: {
+    ...mapState(["messages"]),
+  },
+  methods: {
+    toggle() {
+      this.$store.dispatch("messages/toggle");
+    },
+  },
+  mounted() {},
 };
 </script>
 
