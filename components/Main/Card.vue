@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-trending-bg mt-5 flex flex-col rounded-xl overflow-hidden">
+  <div class="bg-trending-bg flex flex-col rounded-xl overflow-hidden">
     <div class="grid grid-cols-1 divide-y-2 divide-gray-700">
       <div class="flex justify-between items-center py-3 px-4">
         <div class="text-xl font-extrabold text-white">
-          <slot name="header">Header</slot>
+          <slot name="header"> Header </slot>
         </div>
         <slot name="icon"></slot>
       </div>
@@ -50,7 +50,7 @@
       >
         <div class="flex justify-between items-center w-full">
           <div class="text-sm text-twitter">
-            <slot name="footer">Tampilkan Lebih Banyak</slot>
+            <slot name="footer"></slot>
           </div>
         </div>
       </div>

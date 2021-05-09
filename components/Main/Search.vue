@@ -20,14 +20,18 @@
       <input
         type="text"
         class="appearance-none focus:outline-none flex-grow bg-twitter-input p-3 focus:bg-twitter-bg"
-        placeholder="Cari di Twitter"
+        :placeholder="props.placeholder"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
       />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["props", "value"],
+};
 </script>
 
 <style>

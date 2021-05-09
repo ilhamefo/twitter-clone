@@ -1,5 +1,5 @@
 <template>
-  <card>
+  <card class="mt-5">
     <template #header>Topik untuk diikuti</template>
     <template #content>
       <client-only>

@@ -1,8 +1,9 @@
 <template>
-  <card>
+  <card class="mt-5">
     <template #header>Tren untuk Anda </template>
     <template #icon>
-      <button
+      <nuxt-link
+        to="/settings/trends"
         type="button"
         class="focus:outline-none p-2 hover:bg-twitter-secondary-hover rounded-full"
       >
@@ -22,7 +23,7 @@
             ></path>
           </g>
         </svg>
-      </button>
+      </nuxt-link>
     </template>
     <template #content>
       <!-- <template #content v-if="trending.isLoaded"> should be checking if data is loaded or not, but I try without checking. and still, works. don't know what exactly happening. but yea, if it works, it works :| (maybe bcs async?) -->

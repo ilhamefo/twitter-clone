@@ -8,7 +8,7 @@
         ></unfollow-modal>
       </portal>
     </client-only>
-    <card>
+    <card class="mt-5">
       <template #header>Untuk Diikuti</template>
       <template #content>
         <client-only>

@@ -40,7 +40,7 @@ module.exports = {
   variants: {
     extend: {
       opacity: ['disabled'],
-      backgroundColor: ['group-focus', 'checked', 'active'],
+      backgroundColor: ['group-focus', 'checked', 'active', 'group-hover'],
       textColor: ['group-focus'],
       ringColor: ['group-focus', 'focus-within', 'checked'],
       ringWidth: ['group-focus', 'focus-within', 'checked'],
