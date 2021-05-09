@@ -21,7 +21,7 @@ export default {
   components: {
     SideBar,
     Logo,
-    UserButton: () => import("./UserButton.vue"),
+    UserButton: () => import(/* webpackPrefetch: true */ "./UserButton.vue"),
   },
 };
 </script>

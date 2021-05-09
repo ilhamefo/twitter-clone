@@ -70,7 +70,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  components: { Card: () => import("./Card.vue") },
+  components: { Card: () => import(/* webpackPrefetch: true */ "./Card.vue") },
   computed: {
     ...mapState(["trending"]),
   },

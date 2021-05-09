@@ -64,7 +64,8 @@ export default {
   components: {
     Icons,
     RoundImg,
-    Loading: () => import("~/components/Main/Loading.vue"),
+    Loading: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/Loading.vue"),
   },
   data() {
     return {};

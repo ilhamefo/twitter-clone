@@ -59,13 +59,22 @@
 import { mapState } from "vuex";
 export default {
   components: {
-    LeftSide: () => import("~/components/Main/LeftSide.vue"),
-    TweetSection: () => import("~/components/Main/TweetSection.vue"),
-    Tweet: () => import("~/components/Main/Tweet.vue"),
-    TweetWithMedia: () => import("~/components/Main/TweetWithMedia.vue"),
-    RightSide: () => import("~/components/Main/RightSide.vue"),
-    RoundImg: () => import("~/components/Main/RoundImg.vue"),
-    Message: () => import("~/components/Main/Message.vue"),
+    LeftSide: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/LeftSide.vue"),
+    TweetSection: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/TweetSection.vue"),
+    Tweet: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/Tweet.vue"),
+    TweetWithMedia: () =>
+      import(
+        /* webpackPrefetch: true */ "~/components/Main/TweetWithMedia.vue"
+      ),
+    RightSide: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/RightSide.vue"),
+    RoundImg: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/RoundImg.vue"),
+    Message: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/Message.vue"),
   },
   computed: {
     ...mapState(["data", "recommendation"]),

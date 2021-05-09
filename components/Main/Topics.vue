@@ -56,8 +56,8 @@
 import { mapState } from "vuex";
 export default {
   components: {
-    Card: () => import("./Card.vue"),
-    RoundImg: () => import("./RoundImg.vue"),
+    Card: () => import(/* webpackPrefetch: true */ "./Card.vue"),
+    RoundImg: () => import(/* webpackPrefetch: true */ "./RoundImg.vue"),
   },
   computed: {
     ...mapState(["topics"]),

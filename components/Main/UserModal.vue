@@ -1,6 +1,6 @@
 <template>
   <div
-    class="max-h-96 py-3 w-72 bg-twitter-bg absolute bottom-20 mb-3 shadow-white rounded-2xl text-white grid grid-cols-1 grid-flow-row auto-rows-max gap-1 divide-y divide-gray-600 cursor-pointer left-0"
+    class="max-h-96 py-3 w-72 bg-twitter-bg absolute bottom-20 mb-3 shadow-white rounded-2xl text-white grid grid-cols-1 grid-flow-row auto-rows-max gap-0 divide-y divide-gray-600 cursor-pointer left-0"
   >
     <client-only>
       <div
@@ -62,11 +62,10 @@
 </template>
 
 <script>
-import RoundImg from "./RoundImg.vue";
 import { mapState, mapGetters } from "vuex";
 export default {
   components: {
-    RoundImg,
+    RoundImg: () => import(/* webpackPrefetch: true */ "./RoundImg.vue"),
   },
   data: () => {
     return {};

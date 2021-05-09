@@ -61,11 +61,13 @@
 
 <script>
 import { mapState } from "vuex";
-import Card from "./Card.vue";
-import RoundImg from "./RoundImg.vue";
-import UnfollowModal from "./UnfollowModal.vue";
 export default {
-  components: { UnfollowModal, Card, RoundImg },
+  components: {
+    UnfollowModal: () =>
+      import(/* webpackPrefetch: true */ "./UnfollowModal.vue"),
+    Card: () => import("./Card.vue"),
+    RoundImg: () => import("./RoundImg.vue"),
+  },
   data() {
     return {
       btnStyle: "",

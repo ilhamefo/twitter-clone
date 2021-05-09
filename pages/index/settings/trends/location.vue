@@ -46,12 +46,17 @@
 
 <script>
 import { mapState } from "vuex";
-import TweetSection from "~/components/Main/TweetSection.vue";
-import Prompt from "~/components/Main/Prompt.vue";
-import Card from "~/components/Main/Card.vue";
-import Search from "~/components/Main/Search.vue";
 export default {
-  components: { TweetSection, Prompt, Card, Search },
+  components: {
+    TweetSection: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/TweetSection.vue"),
+    Prompt: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/Prompt.vue"),
+    Card: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/Card.vue"),
+    Search: () =>
+      import(/* webpackPrefetch: true */ "~/components/Main/Search.vue"),
+  },
   computed: { ...mapState(["tweet"]) },
   methods: {},
   data() {
