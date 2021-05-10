@@ -7,10 +7,9 @@
       />
     </div>
     <div class="relative p-4">
-      <round-img
-        :size="32"
-        class="ring-4 ring-twitter-bg absolute -top-16"
-      ></round-img>
+      <round-img :size="32" class="ring-4 ring-twitter-bg absolute -top-16">
+        <img :src="user.image" alt="" />
+      </round-img>
       <div class="flex justify-end items-center">
         <button
           class="rounded-full border border-twitter px-4 py-2 focus:outline-none text-twitter font-bold"
@@ -19,13 +18,10 @@
         </button>
       </div>
       <div class="my-3 flex flex-col justify-between">
-        <div class="text-xl font-extrabold">eof</div>
-        <div class="text-base text-gray-400">@ilhamefo</div>
+        <div class="text-xl font-extrabold">{{ user.displayname }}</div>
+        <div class="text-base text-gray-400">{{ user.username }}</div>
       </div>
-      <div class="mb-2">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum,
-        asperiores!
-      </div>
+      <div class="mb-2">{{ user.bio }}</div>
       <div class="flex justify-start items-start mb-2">
         <span class="flex items-center justify-center">
           <svg
@@ -45,7 +41,7 @@
             </g>
           </svg>
         </span>
-        <span class="text-gray-400 mr-3"> Lahir 17 Juni 1998 </span>
+        <span class="text-gray-400 mr-3"> Lahir {{ user.dob }} </span>
         <span class="flex items-center justify-center">
           <svg
             height="26px"
@@ -69,15 +65,19 @@
             </g>
           </svg>
         </span>
-        <span class="text-gray-400"> Bergabung April 2012 </span>
+        <span class="text-gray-400"> Bergabung {{ user.join }} </span>
       </div>
       <div class="mb-2 flex">
         <div class="flex group cursor-pointer">
-          <div class="font-bold mr-1 group-hover:underline">108</div>
+          <div class="font-bold mr-1 group-hover:underline">
+            {{ user.followings }}
+          </div>
           <div class="text-gray-400 mr-3 group-hover:underline">Mengikuti</div>
         </div>
         <div class="flex group cursor-pointer">
-          <div class="font-bold mr-1 group-hover:underline">4.683</div>
+          <div class="font-bold mr-1 group-hover:underline">
+            {{ user.followers }}
+          </div>
           <div class="text-gray-400 mr-3 group-hover:underline">Pengikut</div>
         </div>
       </div>
@@ -88,6 +88,7 @@
 <script>
 import RoundImg from "./RoundImg.vue";
 export default {
+  props: ["user"],
   components: {
     RoundImg,
   },

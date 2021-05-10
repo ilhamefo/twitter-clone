@@ -1,111 +1,129 @@
 {
-  "recommendation": [
-    {
-      "id": 1,
-      "displayName": "eof",
-      "username": "@ilhamefo",
-      "isFollowing": false,
-      "image": "https://picsum.photos/100/100?grayscale"
-    },
-    {
-      "id": 2,
-      "displayName": "info twitwor & drama",
-      "username": "@infotwitwor_",
-      "isFollowing": false,
-      "image": "https://picsum.photos/100/100?grayscale"
-    },
-    {
-      "id": 3,
-      "displayName": "Ngakaksohard",
-      "username": "@NgakakSoHard_",
-      "isFollowing": false,
-      "image": "https://picsum.photos/100/100?grayscale"
-    }
-  ],
-  "messages": [
-    {
-      "id": 1,
-      "from": "@johndoe",
-      "displayname": "John Doe",
-      "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam iure distinctio architecto, asperiores molestias, ullam optio dolor quasi possimus aut. Recusandae possimus, ad nobis laudantium ratione velit expedita molestias.",
-      "image": "https://picsum.photos/100/100?grayscale"
-    },
-    {
-      "id": 2,
-      "from": "@janedoe",
-      "displayname": "Jane Doe",
-      "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam iure distinctio architecto, asperiores molestias, ullam optio dolor quasi possimus aut. Recusandae possimus, ad nobis laudantium ratione velit expedita molestias.",
-      "image": "https://picsum.photos/100/100?grayscale"
-    },
-    {
-      "id": 3,
-      "from": "@dustinporier",
-      "displayname": "Dustin Poirier",
-      "message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam iure distinctio architecto, asperiores molestias, ullam optio dolor quasi possimus aut. Recusandae possimus, ad nobis laudantium ratione velit expedita molestias.",
-      "image": "https://picsum.photos/100/100?grayscale"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "username": "@ilhamefo",
-      "displayname": "eof",
-      "image": "https://picsum.photos/100/100?grayscale",
-      "active": true
-    },
-    {
-      "id": 2,
-      "username": "@ofemahli",
-      "displayname": "Efo",
-      "image": "https://picsum.photos/100/100?grayscale",
-      "active": false
-    },
-    {
-      "id": 3,
-      "username": "@codewithefo",
-      "displayname": "Code With Efo",
-      "image": "https://picsum.photos/100/100?grayscale",
-      "active": false
-    }
-  ],
-  "trendings": [
-    {
-      "id": 1,
-      "tag": "#3rdTasteOfButter",
-      "tweetCount": "403rb"
-    },
-    {
-      "id": 2,
-      "tag": "#HEART_OF_MOA",
-      "tweetCount": "116rb"
-    },
-    {
-      "id": 3,
-      "tag": "#TXT_FREEZE",
-      "tweetCount": "145rb"
-    },
-    {
-      "id": 4,
-      "tag": "#HAECHAN",
-      "tweetCount": "135rb"
-    }
-  ],
-  "topics": [
-    {
-      "title": "Kreator digital",
-      "desc": "Hiburan"
-    },
-    {
-      "title": "BTS",
-      "desc": "Group K-pop"
-    },
-    {
-      "title": "NCT",
-      "desc": "Group K-pop"
-    },
-    {
-      "title": "K-pop",
-      "desc": "Genre musik"
-    }
-  ]
+	"recommendation": [
+		{
+			"id": 1,
+			"displayName": "eof",
+			"username": "@ilhamefo",
+			"isFollowings": false,
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+		},
+		{
+			"id": 2,
+			"displayName": "info twitwor & drama",
+			"username": "@infotwitwor_",
+			"isFollowings": false,
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+		},
+		{
+			"id": 3,
+			"displayName": "Ngakaksohard",
+			"username": "@NgakakSoHard_",
+			"isFollowings": false,
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+		}
+	],
+	"messages": [
+		{
+			"id": 1,
+			"from": "@johndoe",
+			"displayname": "John Doe",
+			"message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam iure distinctio architecto, asperiores molestias, ullam optio dolor quasi possimus aut. Recusandae possimus, ad nobis laudantium ratione velit expedita molestias.",
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+		},
+		{
+			"id": 2,
+			"from": "@janedoe",
+			"displayname": "Jane Doe",
+			"message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam iure distinctio architecto, asperiores molestias, ullam optio dolor quasi possimus aut. Recusandae possimus, ad nobis laudantium ratione velit expedita molestias.",
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+		},
+		{
+			"id": 3,
+			"from": "@dustinporier",
+			"displayname": "Dustin Poirier",
+			"message": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam iure distinctio architecto, asperiores molestias, ullam optio dolor quasi possimus aut. Recusandae possimus, ad nobis laudantium ratione velit expedita molestias.",
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
+		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"username": "@ilhamefo",
+			"displayname": "eof",
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max",
+			"active": true,
+			"bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, asperiores!",
+			"dob": "17 Juni 1998",
+			"join": "April 2012",
+			"followers": 3442,
+			"followings": 792,
+			"tweets": 3293
+		},
+		{
+			"id": 2,
+			"username": "@ofemahli",
+			"displayname": "Efo",
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max",
+			"active": false,
+			"bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, asperiores!",
+			"dob": "17 Juni 1998",
+			"join": "April 2012",
+			"followers": 3442,
+			"followings": 792,
+			"tweets": 6666
+		},
+		{
+			"id": 3,
+			"username": "@codewithefo",
+			"displayname": "Code With Efo",
+			"image": "https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max",
+			"active": false,
+			"bio": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, asperiores!",
+			"dob": "17 Juni 1998",
+			"join": "April 2012",
+			"followers": 3442,
+			"followings": 792,
+			"tweets": 6666
+		}
+	],
+	"trendings": [
+		{
+			"id": 1,
+			"tag": "#3rdTasteOfButter",
+			"tweetCount": "403rb"
+		},
+		{
+			"id": 2,
+			"tag": "#HEART_OF_MOA",
+			"tweetCount": "116rb"
+		},
+		{
+			"id": 3,
+			"tag": "#TXT_FREEZE",
+			"tweetCount": "145rb"
+		},
+		{
+			"id": 4,
+			"tag": "#HAECHAN",
+			"tweetCount": "135rb"
+		}
+	],
+	"topics": [
+		{
+			"title": "Kreator digital",
+			"desc": "Hiburan"
+		},
+		{
+			"title": "BTS",
+			"desc": "Group K-pop"
+		},
+		{
+			"title": "NCT",
+			"desc": "Group K-pop"
+		},
+		{
+			"title": "K-pop",
+			"desc": "Genre musik"
+		}
+	]
 }
