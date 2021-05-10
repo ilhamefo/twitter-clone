@@ -92,11 +92,10 @@ export default {
     },
 
     mouseOver(e, isFollowing) {
-      console.log("hello");
-      this.btnText = isFollowing ? "Setop Ikuti" : "Ikuti";
+      isFollowing ? (this.btnText = "Setop Ikuti") : (this.btnText = "Ikuti");
     },
     mouseLeave(e, isFollowing) {
-      this.btnText = isFollowing ? "Mengikuti" : "Ikuti";
+      isFollowing ? (this.btnText = "Mengikuti") : (this.btnText = "Ikuti");
     },
   },
 

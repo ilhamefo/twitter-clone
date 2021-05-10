@@ -33,7 +33,6 @@ export const actions = {
 
 export const mutations = {
   showModalUnfollow(state, toggle) {
-    console.log(toggle);
     state.showModalUnfollow = toggle;
   },
   selected(state, user) {

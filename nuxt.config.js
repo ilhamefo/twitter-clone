@@ -55,6 +55,10 @@ export default {
     extend(config, ctx) {
       config.resolve.alias['vue'] = 'vue/dist/vue.common'
     }
+  },
+  router: {
+    linkActiveClass: 'text-twitter',
+    linkExactActiveClass: 'text-twitter'
   }
 
 }

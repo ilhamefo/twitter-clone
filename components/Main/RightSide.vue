@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:flex xl:w-6/12 hidden flex-grow w-5/12 h-full">
+  <div class="lg:flex 2xl:w-6/12 hidden flex-grow w-3/12 h-full">
     <div class="flex flex-col mx-5 my-2 w-11/12 2xl:w-7/12">
       <search :props="props" class="sticky top-0"></search>
       <!-- trendings -->

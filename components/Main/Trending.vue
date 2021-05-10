@@ -3,6 +3,7 @@
     <template #header>Tren untuk Anda </template>
     <template #icon>
       <nuxt-link
+        :prefetch="false"
         to="/settings/trends"
         type="button"
         class="focus:outline-none p-2 hover:bg-twitter-secondary-hover rounded-full"

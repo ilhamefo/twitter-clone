@@ -1,7 +1,6 @@
 <template>
-  <!-- <portal to="target"> -->
   <div
-    class="w-full h-full bg-white bg-opacity-10 z-30 flex justify-center fixed overflow-hidden"
+    class="w-full h-full bg-white bg-opacity-10 z-30 flex justify-center fixed overflow-hidden left-0"
     @click="showModal(false)"
   >
     <div
@@ -31,7 +30,6 @@
         <tweet-section></tweet-section>
       </div>
     </div>
-    <!-- <portal to="prompt"> -->
     <div
       class="w-full h-full bg-twitter bg-opacity-10 z-50 flex justify-center items-center fixed overflow-hidden"
       @click="savePrompt(false)"
@@ -59,9 +57,7 @@
         </template>
       </prompt>
     </div>
-    <!-- </portal> -->
   </div>
-  <!-- </portal> -->
 </template>
 
 <script>

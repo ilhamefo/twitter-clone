@@ -56,10 +56,12 @@
 
 <script>
 import RoundImg from "./RoundImg.vue";
-import UserModal from "./UserModal.vue";
 import { mapState, mapGetters } from "vuex";
 export default {
-  components: { RoundImg, UserModal },
+  components: {
+    RoundImg,
+    UserModal: () => import(/* webpackPrefetch: true */ "./UserModal.vue"),
+  },
   computed: {
     ...mapState(["data", "users"]),
     ...mapGetters({ userActive: "users/userActive" }),
@@ -72,9 +74,7 @@ export default {
   data() {
     return { activeUser: null };
   },
-  mounted() {
-    console.log(this.userActive);
-  },
+  mounted() {},
 };
 </script>
 

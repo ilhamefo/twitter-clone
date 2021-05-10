@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-full bg-white bg-opacity-10 z-50 flex justify-center items-center fixed overflow-hidden"
+    class="w-full h-full bg-white bg-opacity-10 z-50 flex justify-center items-center fixed overflow-hidden left-0"
     @click="$router.back()"
   >
     <div
@@ -90,7 +90,7 @@
             <label
               class="flex justify-between items-start cursor-pointer group"
             >
-              <div class="select-none my-1">Tampilkan konten di lokasi ini</div>
+              <div class="select-none my-1">Tren untuk Anda</div>
               <div
                 class="group-hover:bg-twitter-secondary-hover rounded-full flex items-center justify-center p-3 absolute right-0 top-0 mr-2"
               >
