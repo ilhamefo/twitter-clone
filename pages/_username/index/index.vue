@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <tweet></tweet>
+    <tweet v-for="i in 3" :key="i"></tweet>
   </div>
 </template>
 

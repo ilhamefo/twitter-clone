@@ -1,9 +1,14 @@
 <template>
-  <div class="">Hi, Im likes</div>
+  <div class="">
+    <tweet></tweet>
+  </div>
 </template>
 
 <script>
-export default {};
+import Tweet from "~/components/Main/Tweet.vue";
+export default {
+  components: { Tweet },
+};
 </script>
 
 <style>

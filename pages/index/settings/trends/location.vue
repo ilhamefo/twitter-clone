@@ -31,12 +31,12 @@
           </div>
         </template>
         <template #content>
-          <search
+          <!-- <search
             class="p-2"
             :props="props"
             v-bind:value="searchText"
             v-on:input="searchText = $event"
-          ></search>
+          ></search> -->
         </template>
         <template #footer> </template>
       </card>

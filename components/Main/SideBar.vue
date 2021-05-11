@@ -1,9 +1,8 @@
 <template>
   <div class="w-full flex flex-col xl:items-start items-center text-white">
-    <div class="flex my-2">
+    <div class="flex my-1">
       <nuxt-link
         to="/home"
-        href="#"
         class="flex hover:bg-twitter-hover max-w-max xl:py-3 xl:px-5 p-3 rounded-full"
       >
         <span class="xl:mr-5">
@@ -31,9 +30,9 @@
         <span class="hidden xl:flex font-bold text-xl">Beranda</span>
       </nuxt-link>
     </div>
-    <div class="flex my-2">
-      <a
-        href="#"
+    <div class="flex my-1">
+      <nuxt-link
+        to="/explore"
         class="flex hover:bg-twitter-hover max-w-max xl:py-3 xl:px-5 p-3 rounded-full"
       >
         <span class="xl:mr-5">
@@ -41,7 +40,7 @@
             viewBox="0 0 24 24"
             height="26px"
             width="26px"
-            class="fill-current text-white"
+            class="fill-current"
           >
             <g>
               <path
@@ -50,12 +49,12 @@
             </g>
           </svg>
         </span>
-        <span class="text-white hidden xl:flex font-bold text-xl"
+        <span class="hidden xl:flex font-bold text-xl"
           >Jelajahi</span
-        ></a
+        ></nuxt-link
       >
     </div>
-    <div class="flex my-2">
+    <div class="flex my-1">
       <a
         href="#"
         class="flex hover:bg-twitter-hover max-w-max xl:py-3 xl:px-5 p-3 rounded-full"
@@ -79,7 +78,7 @@
         ></a
       >
     </div>
-    <div class="flex my-2">
+    <div class="flex my-1">
       <a
         href="#"
         class="flex hover:bg-twitter-hover max-w-max xl:py-3 xl:px-5 p-3 rounded-full"
@@ -103,7 +102,7 @@
         ></a
       >
     </div>
-    <div class="flex my-2">
+    <div class="flex my-1">
       <a
         href="#"
         class="flex hover:bg-twitter-hover max-w-max xl:py-3 xl:px-5 p-3 rounded-full"
@@ -127,7 +126,7 @@
         ></a
       >
     </div>
-    <div class="flex my-2">
+    <div class="flex my-1">
       <a
         href="#"
         class="flex hover:bg-twitter-hover max-w-max xl:py-3 xl:px-5 p-3 rounded-full"
@@ -154,7 +153,7 @@
         ></a
       >
     </div>
-    <div class="flex my-2">
+    <div class="flex my-1">
       <nuxt-link
         to="/ilhamefo"
         href="#"
@@ -181,7 +180,7 @@
         <span class="hidden xl:flex font-bold text-xl">Profil</span></nuxt-link
       >
     </div>
-    <div class="flex my-2">
+    <div class="flex my-1">
       <a
         href="#"
         class="flex hover:bg-twitter-hover max-w-max xl:py-3 xl:px-5 p-3 rounded-full"
