@@ -1,15 +1,25 @@
 <template>
   <div class="flex flex-col">
-    <div class="flex h-60">
-      <img
-        src="https://images.unsplash.com/photo-1620332785080-0469cb68f57d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max"
-        class="object-cover h"
-      />
-    </div>
+    <nuxt-link
+      class="flex h-60 cursor-pointer"
+      :to="{
+        name: 'username-index-header_photo',
+        params: $route.params.username,
+      }"
+    >
+      <img :src="users.userSelected.image" class="object-cover" />
+    </nuxt-link>
     <div class="relative p-4">
-      <round-img :size="32" class="ring-4 ring-twitter-bg absolute -top-16">
-        <img :src="user.image" alt="" />
-      </round-img>
+      <nuxt-link
+        :to="{
+          name: 'username-index-photo',
+          params: $route.params.username,
+        }"
+      >
+        <round-img :size="32" class="ring-4 ring-twitter-bg absolute -top-16">
+          <img :src="users.userSelected.image" alt="" />
+        </round-img>
+      </nuxt-link>
       <div class="flex justify-end items-center">
         <button
           class="rounded-full border border-twitter px-4 py-2 focus:outline-none text-twitter font-bold"
@@ -18,10 +28,14 @@
         </button>
       </div>
       <div class="my-3 flex flex-col justify-between">
-        <div class="text-xl font-extrabold">{{ user.displayname }}</div>
-        <div class="text-base text-gray-400">{{ user.username }}</div>
+        <div class="text-xl font-extrabold">
+          {{ users.userSelected.displayname }}
+        </div>
+        <div class="text-base text-gray-400">
+          {{ users.userSelected.username }}
+        </div>
       </div>
-      <div class="mb-2">{{ user.bio }}</div>
+      <div class="mb-2">{{ users.userSelected.bio }}</div>
       <div class="flex justify-start items-start mb-2">
         <span class="flex items-center justify-center">
           <svg
@@ -41,7 +55,9 @@
             </g>
           </svg>
         </span>
-        <span class="text-gray-400 mr-3"> Lahir {{ user.dob }} </span>
+        <span class="text-gray-400 mr-3">
+          Lahir {{ users.userSelected.dob }}
+        </span>
         <span class="flex items-center justify-center">
           <svg
             height="26px"
@@ -65,18 +81,20 @@
             </g>
           </svg>
         </span>
-        <span class="text-gray-400"> Bergabung {{ user.join }} </span>
+        <span class="text-gray-400">
+          Bergabung {{ users.userSelected.join }}
+        </span>
       </div>
       <div class="mb-2 flex">
         <div class="flex group cursor-pointer">
           <div class="font-bold mr-1 group-hover:underline">
-            {{ user.followings }}
+            {{ users.userSelected.followings }}
           </div>
           <div class="text-gray-400 mr-3 group-hover:underline">Mengikuti</div>
         </div>
         <div class="flex group cursor-pointer">
           <div class="font-bold mr-1 group-hover:underline">
-            {{ user.followers }}
+            {{ users.userSelected.followers }}
           </div>
           <div class="text-gray-400 mr-3 group-hover:underline">Pengikut</div>
         </div>
@@ -87,12 +105,15 @@
 
 <script>
 import RoundImg from "./RoundImg.vue";
+import { mapState } from "vuex";
+
 export default {
-  props: ["user"],
   components: {
     RoundImg,
   },
-  computed: {},
+  computed: {
+    ...mapState(["users"]),
+  },
   mounted() {},
 };
 </script>

@@ -1,8 +1,8 @@
 export const state = () => ({
   users: [],
   isLoaded: false,
-  showModalUser: false
-
+  showModalUser: false,
+  userSelected: false,
 });
 
 export const actions = {
@@ -24,6 +24,9 @@ export const mutations = {
   },
   isLoaded(state, payload) {
     state.isLoaded = payload;
+  },
+  userSelected(state, payload) {
+    state.userSelected = payload;
   },
   showModalUser(state) {
     state.showModalUser = !state.showModalUser;

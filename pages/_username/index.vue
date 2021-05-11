@@ -1,11 +1,13 @@
 <template>
   <div class="flex xl:w-9/12 w-full text-white overflow-visible">
-    <mid-section v-if="user.length > 0">
+    <mid-section v-if="users.userSelected">
+      <!-- v-if="users.userSelected" -->
       <template #header>
         <div class="flex justify-center items-center">
-          <a
-            href="#"
-            class="rounded-full hover:bg-twitter-hover p-3 transition duration-300 mx-2"
+          <button
+            @click="$router.back()"
+            type="button"
+            class="rounded-full hover:bg-twitter-hover p-3 transition duration-300 mx-2 focus:outline-none"
           >
             <svg
               height="24px"
@@ -19,22 +21,24 @@
                 ></path>
               </g>
             </svg>
-          </a>
+          </button>
           <div class="flex flex-col p-1 justify-between">
-            <div class="font-extrabold text-lg">{{ user[0].displayname }}</div>
+            <div class="font-extrabold text-lg">
+              {{ users.userSelected.displayname }}
+            </div>
             <div class="text-gray-500 text-sm">
-              {{ Intl.NumberFormat().format(user[0].tweets) }} Tweet
+              {{ Intl.NumberFormat().format(users.userSelected.tweets) }} Tweet
             </div>
           </div>
         </div>
       </template>
       <template #content>
-        <user-profile :user="user[0]"></user-profile>
+        <user-profile></user-profile>
         <user-tweet></user-tweet>
         <NuxtChild />
       </template>
     </mid-section>
-    <right-side v-if="user.length > 0"></right-side>
+    <right-side v-if="users.userSelected"></right-side>
     <div
       v-if="user.length <= 0"
       class="flex flex-col justify-center w-full items-center"
@@ -52,6 +56,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import MidSection from "~/components/Main/MidSection.vue";
 import RightSide from "~/components/Main/RightSide.vue";
 import UserProfile from "~/components/Main/UserProfile.vue";
@@ -63,6 +68,9 @@ export default {
       title: "eof (@ilhamefo) / Twitter",
     };
   },
+  computed: {
+    ...mapState(["users"]),
+  },
   data: () => ({
     found: false,
     user: false,
@@ -73,8 +81,7 @@ export default {
         `http://localhost:3004/users/?username=@${this.$route.params.username}`
       )
       .then((res) => {
-        this.user = res;
-        console.log(this.user.length);
+        this.$store.commit("users/userSelected", res[0]);
       })
       .catch((err) => console.log(err));
   },

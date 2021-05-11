@@ -1,6 +1,6 @@
 <template>
-  <a
-    href="#"
+  <nuxt-link
+    to="/home"
     class="flex justify-start items-center hover:bg-twitter-hover max-w-min rounded-full ml-2 p-3"
   >
     <svg height="30px" width="30px" fill="#FFFFFF" viewBox="0 0 24 24" class="">
@@ -10,7 +10,7 @@
         ></path>
       </g>
     </svg>
-  </a>
+  </nuxt-link>
 </template>
 
 <script>
